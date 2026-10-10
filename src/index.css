@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #0F1115;
+  color: #E6E8EB;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.mono { font-family: 'IBM Plex Mono', monospace; }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  border-bottom: 1px solid #262B35;
+}
+
+.navbar-brand {
+  color: #E6E8EB;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: #8B92A0;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn-text:hover { color: #E6E8EB; }
+
+.btn-primary {
+  background: #2DD4BF;
+  color: #0F1115;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.btn-primary:hover { background: #26bfab; }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Auth pages */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+}
+.auth-form {
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.auth-form h1 { margin: 0 0 4px; font-size: 22px; }
+.auth-subtitle { color: #8B92A0; margin: 0 0 20px; font-size: 14px; }
+.auth-form label { font-size: 13px; color: #8B92A0; margin-top: 12px; }
+.auth-form input {
+  background: #171A21;
+  border: 1px solid #262B35;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #E6E8EB;
+  font-size: 14px;
+  margin-top: 6px;
+}
+.auth-form input:focus { outline: 2px solid #2DD4BF; border-color: #2DD4BF; }
+.auth-form .btn-primary { margin-top: 20px; }
+.auth-switch { color: #8B92A0; font-size: 13px; margin-top: 16px; text-align: center; }
+.auth-switch a { color: #2DD4BF; }
+.form-error { color: #E5484D; font-size: 13px; margin-top: 12px; }
+
+/* Vulnerability check page */
+.check-page { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+.check-page h1 { font-size: 24px; margin-bottom: 4px; }
+.check-subtitle { color: #8B92A0; margin-top: 0; font-size: 14px; }
+
+.check-form { margin-top: 24px; }
+.field-row { display: flex; gap: 16px; margin-bottom: 16px; }
+.field { display: flex; flex-direction: column; flex: 1; }
+.field label { font-size: 13px; color: #8B92A0; margin-bottom: 6px; }
+.field input, .field select {
+  background: #171A21;
+  border: 1px solid #262B35;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #E6E8EB;
+  font-size: 14px;
+}
+.field input:focus, .field select:focus { outline: 2px solid #2DD4BF; border-color: #2DD4BF; }
+
+.results { margin-top: 32px; border-top: 1px solid #262B35; }
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #262B35;
+  font-size: 14px;
+}
+.results-count { color: #8B92A0; }
+
+.vuln-row {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #262B35;
+  align-items: flex-start;
+}
+.vuln-details { flex: 1; }
+.vuln-id { font-size: 13px; color: #E6E8EB; }
+.vuln-summary { margin: 4px 0 0; color: #8B92A0; font-size: 14px; line-height: 1.5; }
+
+.severity-pill {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  height: fit-content;
+}
+.severity-critical, .severity-high { background: rgba(229,72,77,0.15); color: #E5484D; }
+.severity-medium { background: rgba(245,166,35,0.15); color: #F5A623; }
+.severity-low { background: rgba(139,146,160,0.15); color: #8B92A0; }
+.severity-none { background: rgba(61,214,140,0.15); color: #3DD68C; }
