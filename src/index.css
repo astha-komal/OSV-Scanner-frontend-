@@ -115,7 +115,14 @@ body {
   align-items: flex-start;
 }
 .vuln-details { flex: 1; }
-.vuln-id { font-size: 13px; color: #E6E8EB; }
+.vuln-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.vuln-package { font-size: 14px; font-weight: 500; color: #E6E8EB; }
+.vuln-others { margin-top: 6px; font-size: 13px; color: #8B92A0; }
+.vuln-others summary { cursor: pointer; }
+.vuln-others ul { margin: 6px 0 0; padding-left: 18px; }
+.vuln-others li { font-size: 13px; line-height: 1.6; }
+.vuln-id { font-size: 12px; color: #8B92A0; text-decoration: none; }
+.vuln-id:hover { color: #2DD4BF; text-decoration: underline; }
 .vuln-summary { margin: 4px 0 0; color: #8B92A0; font-size: 14px; line-height: 1.5; }
 
 .severity-pill {
@@ -125,6 +132,8 @@ body {
   font-weight: 500;
   white-space: nowrap;
   height: fit-content;
+  min-width: 96px;
+  text-align: center;
 }
 .severity-critical, .severity-high { background: rgba(229,72,77,0.15); color: #E5484D; }
 .severity-medium { background: rgba(245,166,35,0.15); color: #F5A623; }

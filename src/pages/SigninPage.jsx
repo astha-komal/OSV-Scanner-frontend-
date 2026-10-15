@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosClient from "../api/axiosClient";
 import { useAuth } from "../context/AuthContext";
+import { getErrorMessage } from "../utils/validation";
 
 export default function SigninPage() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -23,7 +24,8 @@ export default function SigninPage() {
       signIn(response.data.token);
       navigate("/");
     } catch (err) {
-      setError(err.response?.data?.message || "Invalid email or password.");
+      setError(getErrorMessage(err, "Invalid email or password."));
+      setForm({ email: "", password: "" });
     } finally {
       setLoading(false);
     }
@@ -41,7 +43,7 @@ export default function SigninPage() {
         <label htmlFor="password">Password</label>
         <input id="password" name="password" type="password" value={form.password} onChange={handleChange} required />
 
-        {error && <p className="form-error">{error}</p>}
+        {error && <p className="form-error" role="alert">{error}</p>}
 
         <button type="submit" className="btn-primary" disabled={loading}>
           {loading ? "Signing in..." : "Sign in"}

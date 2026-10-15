@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosClient from "../api/axiosClient";
+import { getErrorMessage } from "../utils/validation";
 
 export default function SignupPage() {
   const [form, setForm] = useState({ email: "", password: "", confirmPassword: "" });
@@ -20,11 +21,7 @@ export default function SignupPage() {
       await axiosClient.post("/auth/signup", form);
       navigate("/signin");
     } catch (err) {
-      const message =
-        err.response?.data?.message ||
-        (err.response?.data?.errors && Object.values(err.response.data.errors)[0]) ||
-        "Something went wrong. Try again.";
-      setError(message);
+     setError(getErrorMessage(err, "Couldn't create your account. Try again."));
     } finally {
       setLoading(false);
     }
